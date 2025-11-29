@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Quote, Loader2, ArrowUpRight } from 'lucide-react';
 import { GlassCard } from './GlassCard';
+import { SiteData } from '../types';
 
-// Interface based on Hitokoto API v1 response
+interface HitokotoProps {
+  uiText: SiteData['hitokoto'];
+}
+
 interface HitokotoResponse {
   id: number;
   uuid: string;
@@ -14,26 +18,24 @@ interface HitokotoResponse {
   created_at: string;
 }
 
-export const Hitokoto: React.FC = () => {
+export const Hitokoto: React.FC<HitokotoProps> = ({ uiText }) => {
   const [data, setData] = useState<HitokotoResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchHitokoto = async () => {
       try {
-        // Fetching from 'Animation' category (c=a) as per reference
         const res = await fetch('https://v1.hitokoto.cn/?c=a');
         const json = await res.json();
         setData(json);
       } catch (error) {
         console.error("Hitokoto fetch failed", error);
-        // Fallback data
         setData({
           id: 0,
           uuid: 'fallback',
-          hitokoto: '今天也要元气满满～',
+          hitokoto: uiText.fallback,
           type: 'a',
-          from: '系统',
+          from: 'System',
           from_who: null,
           creator: 'System',
           created_at: new Date().toISOString()
@@ -44,9 +46,8 @@ export const Hitokoto: React.FC = () => {
     };
 
     fetchHitokoto();
-  }, []);
+  }, [uiText.fallback]); // Re-fetch if fallback language changes? Optional, but safer to just let it wrap.
 
-  // Construct the detail URL
   const detailUrl = data?.uuid ? `https://hitokoto.cn?uuid=${data.uuid}` : 'https://hitokoto.cn';
 
   return (
@@ -57,7 +58,6 @@ export const Hitokoto: React.FC = () => {
         rel="noopener noreferrer"
         className="block w-full h-full p-10 relative z-10"
       >
-        {/* Background decorative quote icon */}
         <div className="absolute -top-6 -left-6 text-miku-pink/5 rotate-12 transform transition-transform duration-700 group-hover:rotate-0 group-hover:scale-110 group-hover:text-miku-pink/10 pointer-events-none">
           <Quote size={180} />
         </div>
@@ -71,7 +71,7 @@ export const Hitokoto: React.FC = () => {
             <div className="w-full max-w-md animate-pulse flex flex-col items-center gap-4">
               <div className="h-5 bg-slate-200 rounded-full w-3/4"></div>
               <div className="h-5 bg-slate-200 rounded-full w-1/2"></div>
-              <div className="h-3 bg-slate-200 rounded-full w-1/4 mt-4"></div>
+              <p className="text-sm text-slate-400 mt-2">{uiText.loading}</p>
             </div>
           ) : (
             <>
@@ -86,7 +86,7 @@ export const Hitokoto: React.FC = () => {
                       <span className="text-slate-700">{data.from_who}</span>
                     )}
                     <span className="text-miku-pink font-black text-xs">「</span>
-                    <span className="text-slate-700">{data?.from || '未知'}</span>
+                    <span className="text-slate-700">{data?.from || uiText.unknown}</span>
                     <span className="text-miku-pink font-black text-xs">」</span>
                  </div>
                  <div className="h-[1px] w-8 md:w-16 bg-gradient-to-r from-transparent via-miku-pink/40 to-transparent"></div>
@@ -94,7 +94,7 @@ export const Hitokoto: React.FC = () => {
 
               <div className="absolute bottom-4 right-4 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                 <span className="flex items-center gap-1 text-xs font-bold text-miku-pink bg-white/80 px-2 py-1 rounded-lg shadow-sm">
-                  查看详情 <ArrowUpRight size={12} />
+                  {uiText.viewDetails} <ArrowUpRight size={12} />
                 </span>
               </div>
             </>
