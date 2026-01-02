@@ -4,7 +4,7 @@ import { GlassCard } from './components/GlassCard';
 import { LinkButton } from './components/LinkButton';
 import { Hitokoto } from './components/Hitokoto';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
-import { Sparkles, User, Heart } from 'lucide-react';
+import { Sparkles, Heart, Coffee } from 'lucide-react';
 import { locales } from './locales';
 import { Language } from './types';
 
@@ -50,11 +50,34 @@ const App: React.FC = () => {
             {siteInfo.subtitle}
           </p>
 
-          <div className="inline-flex items-center gap-3 max-w-3xl mx-auto bg-miku-pink/10 backdrop-blur-md border-2 border-dashed border-miku-pink/40 rounded-2xl px-6 py-4 text-sm md:text-base font-bold text-slate-800 shadow-sm hover:bg-miku-pink/20 transition-colors duration-300">
-            <div className="p-1.5 bg-white/50 rounded-full shrink-0">
-              <User size={16} className="text-miku-dark" />
+          <div className="flex flex-col items-center gap-4">
+            {/* Operator Info with Avatar */}
+            <div className="inline-flex items-center gap-3 max-w-3xl mx-auto bg-miku-pink/10 backdrop-blur-md border-2 border-dashed border-miku-pink/40 rounded-2xl px-6 py-3 text-sm md:text-base font-bold text-slate-800 shadow-sm hover:bg-miku-pink/20 transition-colors duration-300">
+              <a 
+                href="https://b23.tv/mF5hLg7Fix" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="shrink-0 transition-transform hover:scale-110 active:scale-95"
+              >
+                 <img 
+                  src="https://voicebanks.imikufans.com/ava.jpg" 
+                  alt="Avatar" 
+                  className="w-10 h-10 rounded-full border-2 border-white/80 shadow-md object-cover"
+                />
+              </a>
+              {siteInfo.operator}
             </div>
-            {siteInfo.operator}
+
+            {/* Sponsor Button */}
+            <a 
+              href="https://www.imikufans.com/donate.php" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#FFDD00] text-amber-900 font-bold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border border-amber-300/50"
+            >
+              <Coffee size={16} className="fill-current" />
+              {siteInfo.sponsor}
+            </a>
           </div>
         </header>
 

@@ -15,6 +15,7 @@ export const locales: Record<Language, SiteData> = {
     title: "iMikufans未来之境",
     subtitle: "超级网络 · 虚拟歌手资源下载站",
     operator: "由UP主 Syskuku_雪音詩絵 运营（原 SYSKUKU 研究部）",
+    sponsor: "赞助支持 (Buy me a coffee)",
     linkGroups: [
       {
         title: "核心资源与工具",
@@ -29,7 +30,7 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "资料与使用手册",
             tag: "VOCAKEY WIKI",
-            description: "⚠️ 本站VOCAKEY收到非法入侵 被注入大量垃圾文件 一时半会修不好 若体验不好可以使用其他网友镜像版本的VOCAKEY",
+            description: "⚠️ 我们经历了一场VOCAKEY的非法入侵，现在正在恢复，约一周内完成，各位若感觉体验不好可以在下方搜索其他版本的VOCAKEY",
             url: COMMON_URLS.vocakey,
             icon: Book,
           },
@@ -87,6 +88,7 @@ export const locales: Record<Language, SiteData> = {
     title: "iMikufans未來之境",
     subtitle: "超級網絡 · 虛擬歌手資源下載站",
     operator: "由UP主 Syskuku_雪音詩絵 運營（原 SYSKUKU 研究部）",
+    sponsor: "Buy me a coffee",
     linkGroups: [
       {
         title: "核心資源與工具",
@@ -101,7 +103,7 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "資料與使用手冊",
             tag: "VOCAKEY WIKI",
-            description: "⚠️ 本站VOCAKEY收到非法入侵 被注入大量垃圾文件 一時半會修不好 若體驗不好可以使用其他網友鏡像版本的VOCAKEY",
+            description: "⚠️ 我們經歷了一場VOCAKEY的非法入侵，現在正在恢復，約一周內完成，各位若感覺體驗不好可以在下方搜索其他版本的VOCAKEY",
             url: COMMON_URLS.vocakey,
             icon: Book,
           },
@@ -159,6 +161,7 @@ export const locales: Record<Language, SiteData> = {
     title: "iMikufans Future Realm",
     subtitle: "Super Network · Vocaloid Resource Portal",
     operator: "Operated by Syskuku_YukineShie (Ex-SYSKUKU Research Dept)",
+    sponsor: "Buy me a coffee",
     linkGroups: [
       {
         title: "Core Resources",
@@ -173,7 +176,7 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "Docs & User Manual",
             tag: "VOCAKEY WIKI",
-            description: "⚠️ Warning: This VOCAKEY site was hacked and injected with junk files. Fix pending. If experience is poor, please use a mirror.",
+            description: "⚠️ We experienced an illegal intrusion on VOCAKEY. Recovery is underway and expected within a week. If you experience issues, please search for other mirror versions below.",
             url: COMMON_URLS.vocakey,
             icon: Book,
           },
@@ -231,6 +234,7 @@ export const locales: Record<Language, SiteData> = {
     title: "iMikufans未来の境",
     subtitle: "スーパーネットワーク · ボカロリソースポータル",
     operator: "運営：Syskuku_雪音詩絵 (元SYSKUKU研究部)",
+    sponsor: "Buy me a coffee",
     linkGroups: [
       {
         title: "コアリソースとツール",
@@ -245,7 +249,7 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "資料とマニュアル",
             tag: "VOCAKEY WIKI",
-            description: "⚠️ 警告：本サイトのVOCAKEYはハッキングにより大量のジャンクファイルが注入されました。修復待ちです。他のミラーサイトをご利用ください。",
+            description: "⚠️ VOCAKEYへの不正侵入が発生しました。現在復旧作業中で、約1週間で完了予定です。不具合がある場合は、以下のリンクから他のミラー版を検索してください。",
             url: COMMON_URLS.vocakey,
             icon: Book,
           },
@@ -303,6 +307,7 @@ export const locales: Record<Language, SiteData> = {
     title: "iMikufans Будущее",
     subtitle: "Суперсеть · Портал ресурсов Vocaloid",
     operator: "Оператор: Syskuku_YukineShie (Ex-SYSKUKU Research Dept)",
+    sponsor: "Buy me a coffee",
     linkGroups: [
       {
         title: "Основные ресурсы",
@@ -317,7 +322,7 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "Документация и Wiki",
             tag: "VOCAKEY WIKI",
-            description: "⚠️ Внимание: Сайт VOCAKEY был взломан и содержит мусорные файлы. Ремонт ожидается. Пожалуйста, используйте зеркала.",
+            description: "⚠️ Мы столкнулись с незаконным вторжением в VOCAKEY. Ведутся работы по восстановлению (около недели). Если сайт работает плохо, воспользуйтесь поиском зеркал ниже.",
             url: COMMON_URLS.vocakey,
             icon: Book,
           },

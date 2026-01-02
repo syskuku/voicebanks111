@@ -20,6 +20,7 @@ export interface SiteData {
   title: string;
   subtitle: string;
   operator: string;
+  sponsor: string;
   linkGroups: LinkGroup[];
   hitokoto: {
     loading: string;
