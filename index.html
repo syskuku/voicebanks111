@@ -36,6 +36,7 @@
             'fade-in': 'fadeIn 0.8s ease-out',
             'float': 'float 6s ease-in-out infinite',
             'shimmer': 'shimmer 8s linear infinite',
+            'modal-in': 'modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
           },
           keyframes: {
             fadeIn: {
@@ -49,6 +50,10 @@
             shimmer: {
               '0%': { backgroundPosition: '0% 50%' },
               '100%': { backgroundPosition: '300% 50%' },
+            },
+            modalIn: {
+              '0%': { opacity: '0', transform: 'scale(0.95)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
             }
           },
           backgroundSize: {
@@ -127,7 +132,7 @@
   </div>
 
   <!-- Main Content -->
-  <main class="max-w-5xl mx-auto px-6 py-16 md:py-24 flex flex-col relative z-10">
+  <main class="max-w-5xl mx-auto px-6 py-16 md:py-24 flex flex-col relative z-10 pb-12">
     
     <!-- Announcement Banner -->
     <div class="max-w-4xl mx-auto mb-10 w-full animate-fade-in">
@@ -170,8 +175,8 @@
           <span id="site-operator">由 VOCAKEY.WIKI社区运营</span>
         </div>
 
-        <!-- Sponsor Button (Alert Only) -->
-        <button onclick="alert('本站已不支持赞助。如需为本站做贡献请点击下方资源扩充按钮。')" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#FFDD00] text-amber-900 font-bold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border border-amber-300/50 cursor-pointer">
+        <!-- Sponsor Button -->
+        <button onclick="openSponsorModal()" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#FFDD00] text-amber-900 font-bold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border border-amber-300/50 cursor-pointer">
           <i data-lucide="coffee" width="16" class="fill-current"></i>
           <span id="sponsor-btn-text">赞助支持 (Sponsor)</span>
         </button>
@@ -226,19 +231,27 @@
       </a>
     </div>
 
-    <!-- Footer -->
-    <footer class="mt-24 text-center pb-8">
-      <div class="inline-flex flex-col items-center gap-2 px-8 py-4 rounded-3xl bg-white/40 backdrop-blur-md border border-white/60 shadow-lg shadow-miku-pink/5">
-        <div class="flex items-center gap-2 text-miku-dark mb-1">
-          <i data-lucide="heart" width="16" class="fill-current animate-pulse"></i>
-          <span class="font-bold text-sm tracking-wider uppercase">VOCAKEE</span>
-        </div>
-        <p id="footer-rights" class="text-xs font-semibold text-slate-600">
-          © 2024 VOCAKEE 社区. 保留所有权利.
-        </p>
-      </div>
-    </footer>
+    <!-- Footer Removed -->
   </main>
+
+  <!-- Sponsor Modal -->
+  <div id="sponsor-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center" role="dialog" aria-modal="true">
+    <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modal-backdrop" onclick="closeSponsorModal()"></div>
+    <div class="relative w-full max-w-md p-4 transition-all duration-300 opacity-0 scale-95" id="modal-content">
+      <div class="bg-white/95 backdrop-blur-2xl border border-white/60 rounded-3xl p-8 shadow-2xl text-center ring-1 ring-black/5">
+        <div class="w-16 h-16 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm ring-4 ring-amber-50">
+          <i data-lucide="coffee" width="32"></i>
+        </div>
+        <h3 class="text-xl font-bold text-slate-800 mb-3">赞助说明</h3>
+        <p class="text-slate-600 mb-8 leading-relaxed font-medium">
+          本站已不支持赞助。<br>如需为本站做贡献请点击下方资源扩充按钮。
+        </p>
+        <button onclick="closeSponsorModal()" class="w-full py-3.5 rounded-2xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/20 active:scale-[0.98] active:shadow-sm">
+          知道了
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Logic -->
   <script>
@@ -262,7 +275,7 @@
             title: "核心资源与工具",
             items: [
               { title: "声库下载站及相关工具", tag: "VOCALOID", url: COMMON_URLS.voicebanks, icon: "download", primary: true },
-              { title: "资料与使用手册", tag: "VOCAKEY WIKI", description: "⚠️ 我们经历了一场VOCAKEY的非法入侵，现在正在恢复，约一周内完成，各位若感觉体验不好可以在下方搜索其他版本的VOCAKEY", url: COMMON_URLS.vocakey, icon: "book" }
+              { title: "资料与使用手册", tag: "VOCAKEY WIKI", url: COMMON_URLS.vocakey, icon: "book" }
             ]
           },
           {
@@ -278,7 +291,6 @@
           }
         ],
         hitokoto: { loading: "加载一言中...", unknown: "未知", viewDetails: "查看详情", fallback: "今天也要元气满满～" },
-        footer: { rights: "VOCAKEE 社区. 保留所有权利." }
       },
       'zh-TW': {
         title: "VOCAKEE 社區",
@@ -290,7 +302,7 @@
             title: "核心資源與工具",
             items: [
               { title: "聲庫下載站及相關工具", tag: "VOCALOID", url: COMMON_URLS.voicebanks, icon: "download", primary: true },
-              { title: "資料與使用手冊", tag: "VOCAKEY WIKI", description: "⚠️ 我們經歷了一場VOCAKEY的非法入侵，現在正在恢復，約一周內完成，各位若感覺體驗不好可以在下方搜索其他版本的VOCAKEY", url: COMMON_URLS.vocakey, icon: "book" }
+              { title: "資料與使用手冊", tag: "VOCAKEY WIKI", url: COMMON_URLS.vocakey, icon: "book" }
             ]
           },
           {
@@ -306,7 +318,6 @@
           }
         ],
         hitokoto: { loading: "加載一言中...", unknown: "未知", viewDetails: "查看詳情", fallback: "今天也要元氣滿滿～" },
-        footer: { rights: "VOCAKEE 社區. 保留所有權利." }
       },
       'en': {
         title: "VOCAKEE Community",
@@ -318,7 +329,7 @@
             title: "Core Resources",
             items: [
               { title: "Voicebank Downloads & Tools", tag: "VOCALOID", url: COMMON_URLS.voicebanks, icon: "download", primary: true },
-              { title: "Docs & User Manual", tag: "VOCAKEY WIKI", description: "⚠️ We experienced an illegal intrusion on VOCAKEY. Recovery is underway and expected within a week. If you experience issues, please search for other mirror versions below.", url: COMMON_URLS.vocakey, icon: "book" }
+              { title: "Docs & User Manual", tag: "VOCAKEY WIKI", url: COMMON_URLS.vocakey, icon: "book" }
             ]
           },
           {
@@ -334,7 +345,6 @@
           }
         ],
         hitokoto: { loading: "Loading Quote...", unknown: "Unknown", viewDetails: "Details", fallback: "Have a wonderful day!" },
-        footer: { rights: "VOCAKEE Community. All Rights Reserved." }
       },
       'ja': {
         title: "VOCAKEE コミュニティ",
@@ -346,7 +356,7 @@
             title: "コアリソースとツール",
             items: [
               { title: "声庫ダウンロード＆ツール", tag: "VOCALOID", url: COMMON_URLS.voicebanks, icon: "download", primary: true },
-              { title: "資料とマニュアル", tag: "VOCAKEY WIKI", description: "⚠️ VOCAKEYへの不正侵入が発生しました。現在復旧作業中で、約1週間で完了予定です。不具合がある場合は、以下のリンクから他のミラー版を検索してください。", url: COMMON_URLS.vocakey, icon: "book" }
+              { title: "資料とマニュアル", tag: "VOCAKEY WIKI", url: COMMON_URLS.vocakey, icon: "book" }
             ]
           },
           {
@@ -362,7 +372,6 @@
           }
         ],
         hitokoto: { loading: "読み込み中...", unknown: "不明", viewDetails: "詳細を見る", fallback: "今日も元気でいこう！" },
-        footer: { rights: "VOCAKEE Community. All Rights Reserved." }
       },
       'ru': {
         title: "VOCAKEE Community",
@@ -374,7 +383,7 @@
             title: "Основные ресурсы",
             items: [
               { title: "Загрузка голосовых банков", tag: "VOCALOID", url: COMMON_URLS.voicebanks, icon: "download", primary: true },
-              { title: "Документация и Wiki", tag: "VOCAKEY WIKI", description: "⚠️ Мы столкнулись с незаконным вторжением в VOCAKEY. Ведутся работы по восстановлению (около недели). Если сайт работает плохо, воспользуйтесь поиском зеркал ниже.", url: COMMON_URLS.vocakey, icon: "book" }
+              { title: "Документация и Wiki", tag: "VOCAKEY WIKI", url: COMMON_URLS.vocakey, icon: "book" }
             ]
           },
           {
@@ -390,7 +399,6 @@
           }
         ],
         hitokoto: { loading: "Загрузка цитаты...", unknown: "Неизвестно", viewDetails: "Подробнее", fallback: "Чудесного дня!" },
-        footer: { rights: "VOCAKEE Community. Все права защищены." }
       }
     };
 
@@ -413,7 +421,6 @@
       document.getElementById('site-subtitle').innerText = data.subtitle;
       document.getElementById('site-operator').innerText = data.operator;
       document.getElementById('sponsor-btn-text').innerText = data.sponsor;
-      document.getElementById('footer-rights').innerText = `© ${new Date().getFullYear()} ${data.footer.rights}`;
       document.getElementById('current-lang-label').innerText = LANGUAGES.find(l => l.code === currentLang).label;
       document.getElementById('loading-text').innerText = data.hitokoto.loading;
       document.getElementById('view-details-text').innerText = data.hitokoto.viewDetails;
@@ -533,6 +540,33 @@
         loadingEl.classList.add('hidden');
         contentEl.classList.remove('hidden');
       }
+    }
+
+    // --- Modal Logic ---
+    function openSponsorModal() {
+      const modal = document.getElementById('sponsor-modal');
+      const backdrop = document.getElementById('modal-backdrop');
+      const content = document.getElementById('modal-content');
+      
+      modal.classList.remove('hidden');
+      // Trigger reflow
+      void modal.offsetWidth;
+      
+      backdrop.classList.remove('opacity-0');
+      content.classList.remove('opacity-0', 'scale-95');
+    }
+
+    function closeSponsorModal() {
+      const modal = document.getElementById('sponsor-modal');
+      const backdrop = document.getElementById('modal-backdrop');
+      const content = document.getElementById('modal-content');
+      
+      backdrop.classList.add('opacity-0');
+      content.classList.add('opacity-0', 'scale-95');
+      
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
     }
 
     // --- Interaction ---
