@@ -1,12 +1,12 @@
-import { Download, Book, Home, Users, Mail } from 'lucide-react';
+import { Download, Book, Activity, Users, Mail } from 'lucide-react';
 import { LinkGroup } from './types';
 
 export const BACKGROUND_IMAGE = "https://voicebanks.imikufans.com/wid.jpg";
 
 export const SITE_INFO = {
-  title: "iMikufans未来之境",
+  title: "VOCAKEE 社区",
   subtitle: "超级网络 · 虚拟歌手资源下载站",
-  operator: "由UP主 Syskuku_雪音詩絵 运营（原 SYSKUKU 研究部）"
+  operator: "由 VOCAKEY.WIKI社区运营"
 };
 
 export const LINK_GROUPS: LinkGroup[] = [
@@ -23,28 +23,28 @@ export const LINK_GROUPS: LinkGroup[] = [
       {
         title: "资料与使用手册",
         tag: "VOCAKEY WIKI",
-        url: "https://vocakey.imikufans.com",
+        url: "https://vocakey.wiki/",
         icon: Book,
       }
     ]
   },
   {
-    title: "主页导航",
+    title: "站点监控",
     items: [
       {
-        title: "iMikufans.com",
-        tag: "主页",
-        url: "https://iMikufans.com",
-        icon: Home,
+        title: "VOCAKEE 监控站面板",
+        tag: "STATUS",
+        url: "https://kuma.imikufans.cn/status/cyanimonitor",
+        icon: Activity,
       }
     ]
   },
   {
-    title: "友情提供",
+    title: "友情提供 (非官方)",
     items: [
       {
         title: "iMikufans Community",
-        description: "虚拟歌手论坛：有小饭团爱睡觉2提供",
+        description: "虚拟歌手论坛：由小饭团爱睡觉2提供（本站为.cn域名非.com域名）",
         tag: "社区",
         url: "https://flarum.imikufans.cn/",
         icon: Users,
@@ -52,7 +52,7 @@ export const LINK_GROUPS: LinkGroup[] = [
       {
         title: "欢迎资源扩充！",
         tag: "联系",
-        url: "mailto:systemzhang123@outlook.com",
+        url: "javascript:alert('暂未设置邮箱，请等待本页后续更新')",
         icon: Mail,
       }
     ]

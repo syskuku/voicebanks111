@@ -1,21 +1,20 @@
-import { Download, Book, Home, Users, Mail, Search } from 'lucide-react';
+import { Download, Book, Activity, Users, Mail } from 'lucide-react';
 import { SiteData, Language } from './types';
 
 const COMMON_URLS = {
   voicebanks: "https://voicebanks1.imikufans.com",
-  vocakey: "https://vocakey.imikufans.com",
-  vocakeySearch: "https://www.bing.com/search?q=vocakey",
-  home: "https://iMikufans.com",
+  vocakey: "https://vocakey.wiki/",
+  monitor: "https://kuma.imikufans.cn/status/cyanimonitor",
   community: "https://flarum.imikufans.cn/",
-  email: "mailto:systemzhang123@outlook.com"
+  noEmailAlert: "javascript:alert('暂未设置邮箱，请等待本页后续更新')"
 };
 
 export const locales: Record<Language, SiteData> = {
   'zh-CN': {
-    title: "iMikufans未来之境",
+    title: "VOCAKEE 社区",
     subtitle: "超级网络 · 虚拟歌手资源下载站",
-    operator: "由UP主 Syskuku_雪音詩絵 运营（原 SYSKUKU 研究部）",
-    sponsor: "赞助支持 (Buy me a coffee)",
+    operator: "由 VOCAKEY.WIKI社区运营",
+    sponsor: "赞助支持",
     linkGroups: [
       {
         title: "核心资源与工具",
@@ -30,36 +29,28 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "资料与使用手册",
             tag: "VOCAKEY WIKI",
-            description: "⚠️ 我们经历了一场VOCAKEY的非法入侵，现在正在恢复，约一周内完成，各位若感觉体验不好可以在下方搜索其他版本的VOCAKEY",
             url: COMMON_URLS.vocakey,
             icon: Book,
-          },
-          {
-            title: "查找其他 VOCAKEY",
-            tag: "镜像搜索",
-            description: "在 Bing 上搜索其他可用的 VOCAKEY 镜像站",
-            url: COMMON_URLS.vocakeySearch,
-            icon: Search,
           }
         ]
       },
       {
-        title: "主页导航",
+        title: "站点监控",
         items: [
           {
-            title: "iMikufans.com",
-            tag: "主页",
-            url: COMMON_URLS.home,
-            icon: Home,
+            title: "VOCAKEE 监控站面板",
+            tag: "STATUS",
+            url: COMMON_URLS.monitor,
+            icon: Activity,
           }
         ]
       },
       {
-        title: "友情提供",
+        title: "友情提供 (非官方)",
         items: [
           {
             title: "iMikufans Community",
-            description: "虚拟歌手论坛：有小饭团爱睡觉2提供",
+            description: "虚拟歌手论坛：由小饭团爱睡觉2提供（本站为.cn域名非.com域名）",
             tag: "社区",
             url: COMMON_URLS.community,
             icon: Users,
@@ -67,7 +58,7 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "欢迎资源扩充！",
             tag: "联系",
-            url: COMMON_URLS.email,
+            url: COMMON_URLS.noEmailAlert,
             icon: Mail,
           }
         ]
@@ -81,14 +72,14 @@ export const locales: Record<Language, SiteData> = {
       fallback: "今天也要元气满满～"
     },
     footer: {
-      rights: "iMikufans 未来之境. 保留所有权利."
+      rights: "VOCAKEE 社区. 保留所有权利."
     }
   },
   'zh-TW': {
-    title: "iMikufans未來之境",
+    title: "VOCAKEE 社區",
     subtitle: "超級網絡 · 虛擬歌手資源下載站",
-    operator: "由UP主 Syskuku_雪音詩絵 運營（原 SYSKUKU 研究部）",
-    sponsor: "Buy me a coffee",
+    operator: "由 VOCAKEY.WIKI社區運營",
+    sponsor: "贊助支持",
     linkGroups: [
       {
         title: "核心資源與工具",
@@ -103,36 +94,28 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "資料與使用手冊",
             tag: "VOCAKEY WIKI",
-            description: "⚠️ 我們經歷了一場VOCAKEY的非法入侵，現在正在恢復，約一周內完成，各位若感覺體驗不好可以在下方搜索其他版本的VOCAKEY",
             url: COMMON_URLS.vocakey,
             icon: Book,
-          },
-          {
-            title: "查找其他 VOCAKEY",
-            tag: "鏡像搜索",
-            description: "在 Bing 上搜索其他可用的 VOCAKEY 鏡像站",
-            url: COMMON_URLS.vocakeySearch,
-            icon: Search,
           }
         ]
       },
       {
-        title: "主頁導航",
+        title: "站點監控",
         items: [
           {
-            title: "iMikufans.com",
-            tag: "主頁",
-            url: COMMON_URLS.home,
-            icon: Home,
+            title: "VOCAKEE 監控站面板",
+            tag: "STATUS",
+            url: COMMON_URLS.monitor,
+            icon: Activity,
           }
         ]
       },
       {
-        title: "友情提供",
+        title: "友情提供 (非官方)",
         items: [
           {
             title: "iMikufans Community",
-            description: "虛擬歌手論壇：有小飯團愛睡覺2提供",
+            description: "虛擬歌手論壇：由小飯團愛睡覺2提供（本站為.cn域名非.com域名）",
             tag: "社區",
             url: COMMON_URLS.community,
             icon: Users,
@@ -140,7 +123,7 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "歡迎資源擴充！",
             tag: "聯繫",
-            url: COMMON_URLS.email,
+            url: COMMON_URLS.noEmailAlert,
             icon: Mail,
           }
         ]
@@ -154,14 +137,14 @@ export const locales: Record<Language, SiteData> = {
       fallback: "今天也要元氣滿滿～"
     },
     footer: {
-      rights: "iMikufans 未來之境. 保留所有權利."
+      rights: "VOCAKEE 社區. 保留所有權利."
     }
   },
   'en': {
-    title: "iMikufans Future Realm",
+    title: "VOCAKEE Community",
     subtitle: "Super Network · Vocaloid Resource Portal",
-    operator: "Operated by Syskuku_YukineShie (Ex-SYSKUKU Research Dept)",
-    sponsor: "Buy me a coffee",
+    operator: "Operated by VOCAKEY.WIKI Community",
+    sponsor: "Sponsor",
     linkGroups: [
       {
         title: "Core Resources",
@@ -176,36 +159,28 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "Docs & User Manual",
             tag: "VOCAKEY WIKI",
-            description: "⚠️ We experienced an illegal intrusion on VOCAKEY. Recovery is underway and expected within a week. If you experience issues, please search for other mirror versions below.",
             url: COMMON_URLS.vocakey,
             icon: Book,
-          },
-          {
-            title: "Find VOCAKEY Mirrors",
-            tag: "SEARCH",
-            description: "Search for other usable VOCAKEY mirrors on Bing",
-            url: COMMON_URLS.vocakeySearch,
-            icon: Search,
           }
         ]
       },
       {
-        title: "Navigation",
+        title: "Status Monitor",
         items: [
           {
-            title: "iMikufans.com",
-            tag: "HOME",
-            url: COMMON_URLS.home,
-            icon: Home,
+            title: "VOCAKEE Monitor Panel",
+            tag: "STATUS",
+            url: COMMON_URLS.monitor,
+            icon: Activity,
           }
         ]
       },
       {
-        title: "Friendly Links",
+        title: "Friendly Links (Unofficial)",
         items: [
           {
             title: "iMikufans Community",
-            description: "Virtual Singer Forum (Provided by XiaoFanTuanAiShuiJiao2)",
+            description: "Virtual Singer Forum: Provided by XiaoFanTuanAiShuiJiao2 (This site is .cn not .com)",
             tag: "FORUM",
             url: COMMON_URLS.community,
             icon: Users,
@@ -213,7 +188,7 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "Contributions Welcome!",
             tag: "CONTACT",
-            url: COMMON_URLS.email,
+            url: COMMON_URLS.noEmailAlert,
             icon: Mail,
           }
         ]
@@ -227,14 +202,14 @@ export const locales: Record<Language, SiteData> = {
       fallback: "Have a wonderful day!"
     },
     footer: {
-      rights: "iMikufans Future Realm. All Rights Reserved."
+      rights: "VOCAKEE Community. All Rights Reserved."
     }
   },
   'ja': {
-    title: "iMikufans未来の境",
+    title: "VOCAKEE コミュニティ",
     subtitle: "スーパーネットワーク · ボカロリソースポータル",
-    operator: "運営：Syskuku_雪音詩絵 (元SYSKUKU研究部)",
-    sponsor: "Buy me a coffee",
+    operator: "運営：VOCAKEY.WIKI コミュニティ",
+    sponsor: "スポンサー",
     linkGroups: [
       {
         title: "コアリソースとツール",
@@ -249,36 +224,28 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "資料とマニュアル",
             tag: "VOCAKEY WIKI",
-            description: "⚠️ VOCAKEYへの不正侵入が発生しました。現在復旧作業中で、約1週間で完了予定です。不具合がある場合は、以下のリンクから他のミラー版を検索してください。",
             url: COMMON_URLS.vocakey,
             icon: Book,
-          },
-          {
-            title: "VOCAKEYミラーを検索",
-            tag: "検索",
-            description: "Bingで他の利用可能なVOCAKEYミラーを探す",
-            url: COMMON_URLS.vocakeySearch,
-            icon: Search,
           }
         ]
       },
       {
-        title: "ナビゲーション",
+        title: "サイト監視",
         items: [
           {
-            title: "iMikufans.com",
-            tag: "ホーム",
-            url: COMMON_URLS.home,
-            icon: Home,
+            title: "VOCAKEE 監視パネル",
+            tag: "STATUS",
+            url: COMMON_URLS.monitor,
+            icon: Activity,
           }
         ]
       },
       {
-        title: "リンク",
+        title: "リンク (非公式)",
         items: [
           {
             title: "iMikufans Community",
-            description: "バーチャルシンガーフォーラム（提供：小飯団愛睡覚2）",
+            description: "バーチャルシンガーフォーラム：提供：小飯団爱睡觉2（本サイトは.cnであり.comではありません）",
             tag: "コミュニティ",
             url: COMMON_URLS.community,
             icon: Users,
@@ -286,7 +253,7 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "リソース提供歓迎！",
             tag: "連絡",
-            url: COMMON_URLS.email,
+            url: COMMON_URLS.noEmailAlert,
             icon: Mail,
           }
         ]
@@ -300,14 +267,14 @@ export const locales: Record<Language, SiteData> = {
       fallback: "今日も元気でいこう！"
     },
     footer: {
-      rights: "iMikufans Future Realm. All Rights Reserved."
+      rights: "VOCAKEE Community. All Rights Reserved."
     }
   },
   'ru': {
-    title: "iMikufans Будущее",
+    title: "VOCAKEE Community",
     subtitle: "Суперсеть · Портал ресурсов Vocaloid",
-    operator: "Оператор: Syskuku_YukineShie (Ex-SYSKUKU Research Dept)",
-    sponsor: "Buy me a coffee",
+    operator: "Оператор: VOCAKEY.WIKI Community",
+    sponsor: "Спонсировать",
     linkGroups: [
       {
         title: "Основные ресурсы",
@@ -322,36 +289,28 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "Документация и Wiki",
             tag: "VOCAKEY WIKI",
-            description: "⚠️ Мы столкнулись с незаконным вторжением в VOCAKEY. Ведутся работы по восстановлению (около недели). Если сайт работает плохо, воспользуйтесь поиском зеркал ниже.",
             url: COMMON_URLS.vocakey,
             icon: Book,
-          },
-          {
-            title: "Найти зеркала VOCAKEY",
-            tag: "ПОИСК",
-            description: "Искать рабочие зеркала VOCAKEY в Bing",
-            url: COMMON_URLS.vocakeySearch,
-            icon: Search,
           }
         ]
       },
       {
-        title: "Навигация",
+        title: "Мониторинг",
         items: [
           {
-            title: "iMikufans.com",
-            tag: "ГЛАВНАЯ",
-            url: COMMON_URLS.home,
-            icon: Home,
+            title: "Панель мониторинга VOCAKEE",
+            tag: "STATUS",
+            url: COMMON_URLS.monitor,
+            icon: Activity,
           }
         ]
       },
       {
-        title: "Дружественные ссылки",
+        title: "Дружественные ссылки (Неофициально)",
         items: [
           {
             title: "iMikufans Community",
-            description: "Форум виртуальных певцов (Provided by XiaoFanTuanAiShuiJiao2)",
+            description: "Форум виртуальных певцов: Provided by XiaoFanTuanAiShuiJiao2 (Это сайт .cn, а не .com)",
             tag: "ФОРУМ",
             url: COMMON_URLS.community,
             icon: Users,
@@ -359,7 +318,7 @@ export const locales: Record<Language, SiteData> = {
           {
             title: "Приветствуем вклад!",
             tag: "КОНТАКТЫ",
-            url: COMMON_URLS.email,
+            url: COMMON_URLS.noEmailAlert,
             icon: Mail,
           }
         ]
@@ -373,7 +332,7 @@ export const locales: Record<Language, SiteData> = {
       fallback: "Чудесного дня!"
     },
     footer: {
-      rights: "iMikufans Future Realm. Все права защищены."
+      rights: "VOCAKEE Community. Все права защищены."
     }
   }
 };
