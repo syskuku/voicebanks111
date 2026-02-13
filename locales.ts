@@ -1,8 +1,9 @@
-import { Download, Book, Activity, Users, Mail } from 'lucide-react';
+import { Download, Book, Activity, Users, Mail, ExternalLink } from 'lucide-react';
 import { SiteData, Language } from './types';
 
 const COMMON_URLS = {
   voicebanks: "https://voicebanks1.imikufans.com",
+  voicebanksCn: "https://resources.imikufans.cn",
   vocakey: "https://vocakey.wiki/",
   monitor: "https://kuma.imikufans.cn/status/cyanimonitor",
   community: "https://flarum.imikufans.cn/",
@@ -25,6 +26,7 @@ export const locales: Record<Language, SiteData> = {
             url: COMMON_URLS.voicebanks,
             icon: Download,
             primary: true,
+            hasScrollArrow: true
           },
           {
             title: "资料与使用手册",
@@ -48,6 +50,13 @@ export const locales: Record<Language, SiteData> = {
       {
         title: "友情提供 (非官方)",
         items: [
+          {
+            title: "声库资源站2（国内优化版）",
+            description: "推荐国内用户使用，访问速度更快",
+            tag: "加速",
+            url: COMMON_URLS.voicebanksCn,
+            icon: ExternalLink,
+          },
           {
             title: "iMikufans Community",
             description: "虚拟歌手论坛：由小饭团爱睡觉2提供（本站为.cn域名非.com域名）",
@@ -90,6 +99,7 @@ export const locales: Record<Language, SiteData> = {
             url: COMMON_URLS.voicebanks,
             icon: Download,
             primary: true,
+            hasScrollArrow: true
           },
           {
             title: "資料與使用手冊",
@@ -113,6 +123,13 @@ export const locales: Record<Language, SiteData> = {
       {
         title: "友情提供 (非官方)",
         items: [
+          {
+            title: "聲庫資源站2（國內優化版）",
+            description: "推薦國內用戶使用，訪問速度更快",
+            tag: "加速",
+            url: COMMON_URLS.voicebanksCn,
+            icon: ExternalLink,
+          },
           {
             title: "iMikufans Community",
             description: "虛擬歌手論壇：由小飯團愛睡覺2提供（本站為.cn域名非.com域名）",
@@ -155,6 +172,7 @@ export const locales: Record<Language, SiteData> = {
             url: COMMON_URLS.voicebanks,
             icon: Download,
             primary: true,
+            hasScrollArrow: true
           },
           {
             title: "Docs & User Manual",
@@ -178,6 +196,13 @@ export const locales: Record<Language, SiteData> = {
       {
         title: "Friendly Links (Unofficial)",
         items: [
+          {
+            title: "Resource Hub 2 (CN Optimized)",
+            description: "Faster access for mainland China users",
+            tag: "MIRROR",
+            url: COMMON_URLS.voicebanksCn,
+            icon: ExternalLink,
+          },
           {
             title: "iMikufans Community",
             description: "Virtual Singer Forum: Provided by XiaoFanTuanAiShuiJiao2 (This site is .cn not .com)",
@@ -220,6 +245,7 @@ export const locales: Record<Language, SiteData> = {
             url: COMMON_URLS.voicebanks,
             icon: Download,
             primary: true,
+            hasScrollArrow: true
           },
           {
             title: "資料とマニュアル",
@@ -243,6 +269,13 @@ export const locales: Record<Language, SiteData> = {
       {
         title: "リンク (非公式)",
         items: [
+          {
+            title: "リソースサイト2（国内最適化版）",
+            description: "中国国内ユーザーに推奨、アクセスがより速い",
+            tag: "加速",
+            url: COMMON_URLS.voicebanksCn,
+            icon: ExternalLink,
+          },
           {
             title: "iMikufans Community",
             description: "バーチャルシンガーフォーラム：提供：小飯団爱睡觉2（本サイトは.cnであり.comではありません）",
@@ -285,6 +318,7 @@ export const locales: Record<Language, SiteData> = {
             url: COMMON_URLS.voicebanks,
             icon: Download,
             primary: true,
+            hasScrollArrow: true
           },
           {
             title: "Документация и Wiki",
@@ -308,6 +342,13 @@ export const locales: Record<Language, SiteData> = {
       {
         title: "Дружественные ссылки (Неофициально)",
         items: [
+          {
+            title: "Хаб ресурсов 2 (CN Оптимизировано)",
+            description: "Более быстрый доступ для пользователей в Китае",
+            tag: "ЗЕРКАЛО",
+            url: COMMON_URLS.voicebanksCn,
+            icon: ExternalLink,
+          },
           {
             title: "iMikufans Community",
             description: "Форум виртуальных певцов: Provided by XiaoFanTuanAiShuiJiao2 (Это сайт .cn, а не .com)",

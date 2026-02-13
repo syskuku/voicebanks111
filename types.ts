@@ -9,6 +9,7 @@ export interface LinkItem {
   description?: string;
   icon: LucideIcon;
   primary?: boolean;
+  hasScrollArrow?: boolean;
 }
 
 export interface LinkGroup {
