@@ -46,7 +46,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({ item, onArrowClick }) =>
               : 'bg-white/40 border-white/60 hover:bg-white/80 hover:border-miku-pink/30'}
             hover:-translate-y-1 hover:shadow-[0_8px_20px_-4px_rgba(255,126,182,0.25)]
             backdrop-blur-md
-            ${item.hasScrollArrow ? 'pr-16' : ''}
+            ${item.hasScrollArrow ? 'pr-14 md:pr-16' : ''}
           `}
         >
           <div className={`
@@ -92,32 +92,35 @@ export const LinkButton: React.FC<LinkButtonProps> = ({ item, onArrowClick }) =>
             onClick={toggleExpand}
             title="查看加速镜像版"
             className={`
-              absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 
-              flex items-center justify-center rounded-xl z-20 transition-all shadow-sm border
+              absolute right-2.5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-11 md:h-11
+              flex items-center justify-center rounded-xl z-20 transition-all shadow-md border
               ${isExpanded 
                 ? 'bg-miku-pink text-white border-miku-pink scale-110' 
-                : 'bg-white text-slate-400 border-slate-200 hover:text-miku-pink hover:border-miku-pink/50 hover:scale-105'}
+                : 'bg-white text-slate-500 border-white hover:text-miku-pink hover:scale-110 active:scale-95'}
             `}
           >
-            <ChevronDown size={20} className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+            <ChevronDown size={22} className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} strokeWidth={3} />
           </button>
         )}
       </div>
 
       {isExpanded && item.hasScrollArrow && (
-        <div className="animate-fade-in pl-4 pr-2">
+        <div className="animate-fade-in px-2 mt-1">
           <button
-            onClick={(e) => onArrowClick?.(e)}
-            className="w-full flex items-center gap-4 p-3 rounded-xl bg-white/60 border border-white/80 hover:bg-miku-pink/5 hover:border-miku-pink/30 transition-all text-left group/sub"
+            onClick={(e) => {
+              setIsExpanded(false);
+              onArrowClick?.(e);
+            }}
+            className="w-full flex items-center gap-4 p-4 rounded-2xl bg-white/90 border-2 border-miku-pink/30 hover:bg-white hover:border-miku-pink transition-all text-left group/sub shadow-lg shadow-miku-pink/5 active:scale-[0.98]"
           >
-            <div className="p-2 rounded-lg bg-miku-pink/10 text-miku-pink group-hover/sub:bg-miku-pink group-hover/sub:text-white transition-colors">
-              <Zap size={18} />
+            <div className="p-2.5 rounded-xl bg-miku-pink text-white shadow-sm group-hover/sub:rotate-12 transition-transform">
+              <Zap size={20} fill="currentColor" />
             </div>
             <div className="flex-1">
-              <div className="text-sm font-bold text-slate-800">国内加速版 (resources.imikufans.cn)</div>
-              <div className="text-[10px] text-slate-500">点击引导至下方国内优化镜像链接</div>
+              <div className="text-sm md:text-base font-black text-slate-800">国内站 (resources.imikufans.cn)</div>
+              <div className="text-[11px] font-bold text-miku-dark opacity-80">点击快速定位并跳转到国内加速镜像</div>
             </div>
-            <ChevronDown size={14} className="text-slate-300 group-hover/sub:text-miku-pink -rotate-90" />
+            <ChevronDown size={18} className="text-miku-pink -rotate-90 group-hover/sub:translate-x-1 transition-transform" strokeWidth={3} />
           </button>
         </div>
       )}
